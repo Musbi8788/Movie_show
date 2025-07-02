@@ -10,12 +10,12 @@
     <link rel="icon" href="{{ url_for('static', filename='m.png') }}">
 {% endblock %}
 
-{% block title %}My Top 10 Movies{% endblock %}
+{% block title %}Top  Movies{% endblock %}
 
 {% block content %}
 <div class="container">
-  <h1 class="heading">My Top 10 Movies</h1>
-  <p class="description">These are my all time favourite movies.</p>
+  <h1 class="heading">Musbi's Movie Wall</h1>
+  <p class="description">Explore our shared movie collection.</p>
 
     {% for movie in movies %}
   <div class="card" >
