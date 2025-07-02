@@ -5,18 +5,17 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 import requests
+import os
 
 headers = {"accept": "application/json",
-           "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MGE2NjBjZGM3OWYxMTM1MDM5OWRlNzU3MmRkZDk2OCIsIm5iZiI6MTczNTc2ODc1Ni4xOSwic3ViIjoiNjc3NWJhYjQzZmM3NmVhNTg4OTJkOGMwIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.0KxUsZ_dtahsF0j3musAf1lmhZpDYCmmeuhq48_IkIU"
+           "Authorization": os.environ.get('AUTH')
            }
 
-Api_Key = "80a660cdc79f11350399de7572ddd968"
+
+Api_Key = os.environ.get('Movie_API')
 IMAGES_Url = "https://image.tmdb.org/t/p/w500"
 
-# params = {
-#             "language":"en-US",
-#             "api_key":Api_Key
-#         }
+
 
 #Create a form for the search bar
 class AddForm(FlaskForm):
@@ -30,7 +29,7 @@ class MovieForm(FlaskForm):
     submit = SubmitField('Done')
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get('S_KEY')
 Bootstrap(app)
 
 ##CREATE DB
